@@ -1,16 +1,35 @@
-# React + Vite
+# Sistema Académico — Clase 11, Unidad 3.1
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+**Asignatura:** Buenas Prácticas de Desarrollo de Software — CUC
+**Tema:** Componentes, props y estado (React + Vite)
 
-Currently, two official plugins are available:
+## Cómo ejecutar
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+Abrir **http://localhost:5173** en el navegador (nunca `index.html` con doble clic).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Qué demuestra el ejercicio
 
-## Expanding the Oxlint configuration
+| Concepto | Dónde está en `src/App.jsx` |
+|---|---|
+| Componente reutilizable con `children` y props | `Boton` (`alHacerClic`, `variante`, `cargando`) |
+| Regla de negocio fuera de los componentes | `estaAprobado(nota)` → `nota >= 3.0` (el 3.0 aprueba) |
+| Componente que recibe datos por props | `FilaEstudiante({ estudiante })` |
+| Estado con `useState` | `estudiantes`, `nombre`, `nota` en `App` |
+| Renderizado de lista con `key` estable | `estudiantes.map(... key={e.id})` |
+| Campo controlado + alta sin tocar el DOM | `value`/`onChange` y `setEstudiantes([...estudiantes, nuevo])` |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Prueba rápida
+
+Escribir un nombre y una nota (0 a 5), oprimir **Agregar estudiante**:
+la fila nueva aparece en la tabla y la consola (F12) no muestra advertencias de `key`.
+
+## Ramas
+
+- `main` — estado base del proyecto
+- `dev` — rama de integración (los PRs llegan aquí)
+- `feature/app-estudiantes` — rama de trabajo de esta entrega
